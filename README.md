@@ -38,8 +38,9 @@ Lucide Icons
 
 Clone the repository:
 
-git clone <your-repo-url>
-cd your-project-folder
+git clone https://github.com/ameenshariff2003/aim.git
+
+cd [folder name]
 
 Install dependencies:
 
