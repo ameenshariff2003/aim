@@ -1,5 +1,7 @@
 AIM IT Services – Corporate Website
 
+LIVE - https://aim-it-services.netlify.app/
+
 ⚠️ Note:
 This website was fully generated using AI based on design references, visual assets, and structured prompts.
 The developer holds foundational knowledge of web technologies and leveraged AI-assisted development to implement UI, layout, animations, and responsiveness.
