@@ -20,75 +20,66 @@ const industries = [
   {
     title: "Large Enterprises",
     icon: Building2,
-    quote:
-      "Enterprise architecture, SAP, AI & digital transformation.",
+    quote: "Enterprise architecture, SAP, AI & digital transformation.",
   },
   {
     title: "Financial Services",
     icon: Banknote,
-    quote:
-      "Secure fintech systems, compliance & data protection.",
+    quote: "Secure fintech systems, compliance & data protection.",
   },
   {
     title: "Healthcare",
     icon: HeartPulse,
-    quote:
-      "Smart healthcare IT, automation & data integration.",
+    quote: "Smart healthcare IT, automation & data integration.",
   },
   {
     title: "Logistics & Supply Chain",
     icon: Truck,
-    quote:
-      "IT operations, WMS, field support & automation.",
+    quote: "IT operations, WMS, field support & automation.",
   },
   {
     title: "Construction & Real Estate",
     icon: Building,
-    quote:
-      "ERP, project management & field tracking solutions.",
+    quote: "ERP, project management & field tracking solutions.",
   },
   {
     title: "Retail & Consumer Businesses",
     icon: Store,
-    quote:
-      "POS systems, inventory automation & analytics.",
+    quote: "POS systems, inventory automation & analytics.",
   },
   {
     title: "Trading & Industrial",
     icon: BarChart3,
-    quote:
-      "Operational dashboards & enterprise visibility tools.",
+    quote: "Operational dashboards & enterprise visibility tools.",
   },
   {
     title: "Manufacturing",
     icon: Factory,
-    quote:
-      "Industry 4.0, IoT integration & smart automation.",
+    quote: "Industry 4.0, IoT integration & smart automation.",
   },
 ];
 
-export default function Grid() {
+export default function IndustriesGrid() {
   return (
     <section className="py-24 bg-white dark:bg-[#071A2E] transition-colors duration-500">
       <div className="max-w-7xl mx-auto px-6">
 
         {/* Header */}
-        <div className="mb-10">
+        <div className="mb-6">
           <span className="border border-gray-300 dark:border-white/20 px-4 py-2 text-sm text-gray-800 dark:text-white">
-            Industries We Serve
+            Industries & Alignment
           </span>
         </div>
 
         <h2 className="text-4xl font-semibold text-gray-900 dark:text-white mb-4">
-          Where Our Expertise Delivers Impact
+          Industries We Serve
         </h2>
 
         <p className="text-gray-600 dark:text-gray-400 mb-14 max-w-3xl">
-          AIM IT Services provides manpower consulting and IT services across
-          nine sectors in the Kingdom of Saudi Arabia.
+          Manpower consulting and IT services across nine sectors in KSA.
         </p>
 
-        {/* Grid */}
+        {/* GRID */}
         <div className="grid md:grid-cols-3">
 
           {industries.map((item, index) => {
@@ -102,47 +93,62 @@ export default function Grid() {
                   relative group overflow-hidden
                   h-[210px]
                   flex items-center justify-center text-center
+                  transition-all duration-500
+
+                  /* default backgrounds */
                   bg-white dark:bg-[#0F2742]
+
                   border-b border-gray-200 dark:border-[#1E3A5F]
                   ${!isLastColumn ? "border-r border-gray-200 dark:border-[#1E3A5F]" : ""}
-                  transition-colors duration-500
                 `}
               >
 
-                {/* Default Content */}
-                <div className="
-                  z-10
-                  transition-opacity duration-500
-                  group-hover:opacity-20
-                ">
+                {/* DEFAULT CONTENT */}
+                <div
+                  className="
+                    z-10
+                    transition-all duration-500
+                    group-hover:opacity-0
+                    group-hover:scale-95
+                  "
+                >
                   <Icon
                     size={42}
                     className="mx-auto text-blue-600 dark:text-blue-400 mb-4"
                   />
+
                   <p className="text-blue-700 dark:text-blue-300 font-medium text-sm px-4">
                     {item.title}
                   </p>
                 </div>
 
-                {/* Sliding Panel */}
+                {/* HOVER PANEL */}
                 <div
                   className="
                     absolute inset-0
                     flex items-center justify-center text-center px-6
-                    bg-white dark:bg-[#0C2036]
+
+                    /* LIGHT MODE → DARK BLUE CARD */
+                    bg-[#0F2742] text-white
+
+                    /* DARK MODE → WHITE CARD */
+                    dark:bg-white dark:text-[#0F2742]
+
                     transform translate-y-full
                     group-hover:translate-y-0
-                    transition-transform duration-[800ms]
+
+                    transition-all duration-[800ms]
                     ease-[cubic-bezier(.22,.61,.36,1)]
                   "
                 >
-                  <p className="
-                    text-gray-800 dark:text-white
-                    text-sm font-medium
-                    opacity-0
-                    group-hover:opacity-100
-                    transition-opacity duration-500 delay-200
-                  ">
+                  <p
+                    className="
+                      text-sm font-medium
+                      opacity-0
+                      group-hover:opacity-100
+                      transition-opacity duration-500 delay-200
+                    "
+                  >
                     {item.quote}
                   </p>
                 </div>
@@ -150,7 +156,6 @@ export default function Grid() {
               </div>
             );
           })}
-
         </div>
       </div>
     </section>

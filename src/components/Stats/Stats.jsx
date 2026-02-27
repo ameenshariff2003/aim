@@ -18,9 +18,9 @@ const Stats = () => {
     <section
       ref={ref}
       className="
-        min-h-[22vh]   /* reduced ~17% */
+        min-h-[22vh]
         pt-14 pb-10
-        bg-[#071A2E] dark:bg-[#071A2E]
+        bg-[#E9EDF2] dark:bg-[#071A2E]
         transition-colors duration-300
       "
     >
@@ -28,11 +28,13 @@ const Stats = () => {
 
         {/* Heading */}
         <div className="mb-8">
-          <h2 className="
-            text-3xl md:text-4xl   /* reduced size */
-            font-semibold leading-tight
-            text-white
-          ">
+          <h2
+            className="
+              text-3xl md:text-4xl
+              font-semibold leading-tight
+              text-[#243B5A] dark:text-white
+            "
+          >
             Results That Speak <br />
             for Themselves
           </h2>
@@ -44,24 +46,33 @@ const Stats = () => {
           {/* LEFT */}
           <div className="flex items-center gap-5">
 
-            <div className="text-6xl md:text-7xl font-bold text-white">
+            {/* 150+ */}
+            <div
+              className="
+                text-6xl md:text-7xl font-bold
+                text-[#C8912E] dark:text-white
+              "
+            >
               {inView && <CountUp end={150} duration={2} />}
               +
             </div>
 
-            <div className="
-              bg-[#0E253F]
-              px-5 py-4
-              border-l-4 border-yellow-400
-            ">
-              <p className="text-base text-gray-200">
+            {/* Experience Box */}
+            <div
+              className="
+                bg-[#DDE2E8] dark:bg-[#0E253F]
+                px-5 py-4
+                border-l-4 border-[#C8912E]
+              "
+            >
+              <p className="text-base text-[#243B5A] dark:text-gray-200">
                 Years Collective <br /> Experience
               </p>
             </div>
 
           </div>
 
-          {/* RIGHT */}
+          {/* RIGHT STATS */}
           <div className="grid grid-cols-2">
 
             {stat.map((item, index) => (
@@ -69,11 +80,24 @@ const Stats = () => {
                 key={index}
                 className={`
                   p-5
-                  ${index % 2 === 0 ? "border-r border-white/10" : ""}
-                  ${index < 2 ? "border-b border-white/10" : ""}
+                  ${
+                    index % 2 === 0
+                      ? "border-r border-gray-300 dark:border-white/10"
+                      : ""
+                  }
+                  ${
+                    index < 2
+                      ? "border-b border-gray-300 dark:border-white/10"
+                      : ""
+                  }
                 `}
               >
-                <h3 className="text-3xl font-semibold text-white">
+                <h3
+                  className="
+                    text-3xl font-semibold
+                    text-[#C8912E] dark:text-white
+                  "
+                >
                   {inView && (
                     <CountUp
                       end={item.number}
@@ -86,7 +110,7 @@ const Stats = () => {
                   )}
                 </h3>
 
-                <p className="mt-2 text-sm text-gray-300">
+                <p className="mt-2 text-sm text-[#243B5A] dark:text-gray-300">
                   {item.label}
                 </p>
               </div>

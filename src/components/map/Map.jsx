@@ -1,5 +1,4 @@
-
-import map from "../../assets/map.jpg"
+import map from "../../assets/map.jpg";
 import { motion } from "framer-motion";
 
 const locations = [
@@ -16,24 +15,44 @@ const locations = [
 
 export default function Map() {
   return (
-    <section className="relative w-full min-h-screen overflow-hidden text-white">
-
+    <section
+      className="
+        relative w-full min-h-screen overflow-hidden
+        transition-colors duration-300
+        text-[#1F3552] dark:text-white
+      "
+    >
       {/* 🌍 Background Image */}
       <img
-        src={map}   
+        src={map}
         alt="World Map"
         className="absolute inset-0 w-full h-full object-cover -z-20"
       />
 
-      {/* 🌙 Navy Overlay */}
-      <div className="absolute inset-0 bg-[#071C33]/95 -z-10" />
+      {/* ✅ THEME OVERLAY */}
+      {/* Dark = SAME as before */}
+      {/* Light = soft white atmosphere (NOT hiding image) */}
+      <div
+        className="
+          absolute inset-0 -z-10
+          bg-white/85
+          dark:bg-[#071C33]/95
+          transition-colors duration-300
+        "
+      />
 
-      {/* Content Container */}
+      {/* Content */}
       <div className="relative max-w-7xl mx-auto px-6 md:px-16 py-24">
 
         {/* Header */}
         <div className="max-w-2xl">
-          <span className="inline-block border border-blue-400/40 px-4 py-1 text-sm mb-6">
+          <span
+            className="
+              inline-block px-4 py-1 text-sm mb-6 border
+              border-[#1F3552]/30 text-[#1F3552]
+              dark:border-blue-400/40 dark:text-white
+            "
+          >
             Our Global Presence
           </span>
 
@@ -41,13 +60,19 @@ export default function Map() {
             Wherever You Operate, We Deliver
           </h2>
 
-          <p className="mt-4 text-gray-300 text-sm">
+          <p
+            className="
+              mt-4 text-sm
+              text-gray-600
+              dark:text-gray-300
+            "
+          >
             AIM is not a virtual company. We are building physical,
             accountable presence in every market we serve.
           </p>
         </div>
 
-        {/* Right Floating List */}
+        {/* Floating List */}
         <div className="mt-16 md:absolute md:right-16 md:top-40 md:w-[400px]">
 
           {locations.map((loc, index) => (
@@ -59,13 +84,26 @@ export default function Map() {
               viewport={{ once: true }}
               className="flex items-start gap-3 mb-6"
             >
-              <div className="mt-2 w-2 h-2 rounded-full bg-blue-400" />
+              {/* Dot */}
+              <div
+                className="
+                  mt-2 w-2 h-2 rounded-full
+                  bg-blue-500 dark:bg-blue-400
+                "
+              />
 
               <div>
                 <h4 className="font-semibold text-base">
                   {loc.country}
                 </h4>
-                <p className="text-gray-400 text-sm mt-1">
+
+                <p
+                  className="
+                    text-sm mt-1
+                    text-gray-600
+                    dark:text-gray-400
+                  "
+                >
                   {loc.desc}
                 </p>
               </div>

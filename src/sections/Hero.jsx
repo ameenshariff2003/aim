@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import heroVideo from "../assets/vid.mp4";
+import vid from "../assets/vid.mp4"
 
 const fadeInUp = {
   hidden: { opacity: 0, y: 40 },
@@ -8,25 +8,32 @@ const fadeInUp = {
 
 const Hero = () => {
   return (
-    <section className="relative h-screen w-full overflow-hidden">
+    <section className="relative w-full h-screen overflow-hidden">
 
-      {/* Video Background */}
+      {/* Desktop Video */}
       <video
         autoPlay
         loop
         muted
         playsInline
-        className="absolute inset-0 w-full h-full object-cover"
+        preload="auto"
+        className="absolute inset-0 w-full h-full object-cover hidden md:block"
       >
-        <source src={heroVideo} type="video/mp4" />
+        <source src={vid} type="video/mp4" />
       </video>
 
-      {/* Theme Based Overlay */}
-      <div className="absolute inset-0 bg-black/50 dark:bg-black/70"></div>
+      {/* Mobile Fallback Image */}
+      <div
+        className="absolute inset-0 w-full h-full bg-cover bg-center md:hidden"
+        style={{ backgroundImage: "url('/images/hero-mobile.jpg')" }}
+      />
+
+      {/* Overlay */}
+      <div className="absolute inset-0 bg-black/60 md:bg-black/50"></div>
 
       {/* Content */}
       <div className="relative z-10 h-full flex items-center">
-        <div className="max-w-7xl mx-auto w-full px-8">
+        <div className="max-w-7xl mx-auto w-full px-6 md:px-8">
 
           <motion.div
             initial="hidden"
@@ -42,7 +49,7 @@ const Hero = () => {
               variants={fadeInUp}
               className="
                 inline-block
-                bg-white/20 dark:bg-white/10
+                bg-white/20
                 px-4 py-2
                 rounded-md
                 text-sm
@@ -58,7 +65,7 @@ const Hero = () => {
               variants={fadeInUp}
               className="
                 mt-6
-                text-4xl md:text-6xl
+                text-3xl sm:text-4xl md:text-6xl
                 font-bold
                 leading-tight
                 text-white
@@ -73,8 +80,8 @@ const Hero = () => {
               variants={fadeInUp}
               className="
                 mt-6
-                text-lg
-                text-gray-200 dark:text-gray-300
+                text-base sm:text-lg
+                text-gray-200
               "
             >
               AIM IT Services bridges the gap in the Kingdom's IT landscape —
@@ -84,7 +91,7 @@ const Hero = () => {
             {/* Buttons */}
             <motion.div
               variants={fadeInUp}
-              className="mt-8 flex gap-4 flex-wrap"
+              className="mt-8 flex flex-wrap gap-4"
             >
               <button
                 className="
@@ -102,7 +109,7 @@ const Hero = () => {
 
               <button
                 className="
-                  bg-blue-600 dark:bg-blue-700
+                  bg-blue-600
                   px-6 py-3
                   rounded-full
                   font-semibold
@@ -119,6 +126,7 @@ const Hero = () => {
 
         </div>
       </div>
+
     </section>
   );
 };
